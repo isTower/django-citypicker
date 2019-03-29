@@ -1,0 +1,15 @@
+{% load static %}
+<div style="position:relative;">
+    <input readonly name="{{ widget.name }}" id="{{ widget.attrs.id }}" type="text">
+</div>
+<script type="text/javascript">
+    $(function(){
+        $("#{{ widget.attrs.id }}").citypicker("reset");
+        $("#{{ widget.attrs.id }}").citypicker("destroy");
+        $("#{{ widget.attrs.id }}").citypicker({
+        {% for k,v in cityPickerMsg.items %}
+            {{ k }}:"{{ v }}",
+        {% endfor %}
+        })
+    });
+</script>
